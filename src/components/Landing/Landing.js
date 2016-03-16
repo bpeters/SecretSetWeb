@@ -21,9 +21,8 @@ class Landing extends Component {
     this.showApp = this.showApp.bind(this);
   };
 
-
   _renderGetApp () {
-    if ( this.state.getApp === false) {
+    if (this.state.getApp === false) {
       return null;
     }
 
@@ -36,6 +35,7 @@ class Landing extends Component {
           fontSize: 30,
         }}
         onMouseDown={this.getForm}
+        onTouchStart={this.getForm}
       />
     );
   }
@@ -85,6 +85,7 @@ class Landing extends Component {
               fontSize: 20,
             }}
             onMouseDown={this.showApp}
+            onTouchStart={this.showApp}
           />
       </div>
     );
