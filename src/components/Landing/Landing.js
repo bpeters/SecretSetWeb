@@ -161,7 +161,7 @@ class Landing extends Component {
           src='../../logo@3x.png'
         />
         <div className={s.about}>
-          Secret Sets for Super fans.
+          A place where artists can create exclusive sets for their fans.
         </div>
 
         {this._renderGetApp()}

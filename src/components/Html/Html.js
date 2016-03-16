@@ -26,8 +26,8 @@ class Html extends Component {
   };
 
   static defaultProps = {
-    title: 'SuperSet',
-    description: 'Great Music',
+    title: 'Secret Set',
+    description: 'A place where artists can create exclusive sets for their fans',
   };
 
   render() {
