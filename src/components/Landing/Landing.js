@@ -15,22 +15,14 @@ class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    this._onSubmitForm = this._onSubmitForm.bind(this);
+
   };
 
-  render() {
-    this.context.onSetTitle('Secret Set');
-
+  _renderForm () {
     return (
-      <div className={s.landing}>
-        <img
-          className= {s.logo}
-          src='../../logo@3x.png'
-        />
-        <div className={s.about}>
-          Secret Sets for Super fans.
-        </div>
-
-        <div className={s.form}>
+      <div className={s.form}>
           <TextField
             hintText="555-555-5555"
             style= {{
@@ -58,9 +50,28 @@ class Landing extends Component {
             labelColor= "#8902B3"
             style={{
               fontFamily: "Next-Medium",
+              fontSize: 20,
             }}
+            onMouseDown={this._onSubmitForm}
           />
         </div>
+      );
+  }
+
+  render() {
+    this.context.onSetTitle('Secret Set');
+
+    return (
+      <div className={s.landing}>
+        <img
+          className= {s.logo}
+          src='../../logo@3x.png'
+        />
+        <div className={s.about}>
+          Secret Sets for Super fans.
+        </div>
+
+
         <Footer />
       </div>
     );
