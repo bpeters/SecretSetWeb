@@ -16,29 +16,23 @@ class Landing extends Component {
   };
 
   render() {
-    this.context.onSetTitle('NAFC');
+    this.context.onSetTitle('Secret Set');
 
     return (
       <div className={s.landing}>
         <img
           className= {s.logo}
-          src='../../Logo.png'
+          src='../../logo@3x.png'
         />
         <div className={s.about}>
-          Let's help you send better messages to avoid a fight.
-          After all, it's not a fight club! Type a message and get a sentiment score.
-          Green is great… anything else, and you are on your own.
+          Sharing listening parties in real time with all your fans.
         </div>
-        <a href='https://itunes.apple.com/us/app/nafc/id1089745220'>
+        <a href='/'>
           <img
             className={s.apple}
-            src='../../app-store-badge.png'
+            src='../../app-store-badge-coming.png'
           />
         </a>
-        <img
-          className={s.phone}
-          src='../../webphone@2x.png'
-        />
         <Footer />
       </div>
     );
