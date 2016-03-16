@@ -34,12 +34,15 @@
   width: 45vw;
 }
 
+.textbox {
+  padding-bottom: 30px;
+}
+
 .download {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-size: 30px;
   font-family: Next-Regular;
   text-align: center;
 }

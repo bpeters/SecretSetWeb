@@ -13,7 +13,7 @@ class Landing extends Component {
       PropTypes.string,
       PropTypes.number,
     ]),
-    handleTextFieldChange: PropTypes.func.isRequired,
+    handleTextFieldChange: PropTypes.func,
   };
 
   static contextTypes = {
@@ -72,6 +72,7 @@ class Landing extends Component {
 
     return (
       <div className={s.form}>
+          <div className = {s.textbox}>
           <TextField
             hintText="555-555-5555"
             style= {{
@@ -96,6 +97,7 @@ class Landing extends Component {
             value={this.state.textFieldValue}
             onChange={this.handleTextFieldChange}
           />
+          </div>
           <RaisedButton
             label="Join the Set"
             labelColor= "#8902B3"
@@ -117,6 +119,20 @@ class Landing extends Component {
       getApp: false,
     });
 
+    fetch('/sms', {
+      method: 'POST',
+      header: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        to: this.state.textFieldValue,
+        from: '+15128874970',
+        body: 'Welcome to SuperSet',
+      },
+    })
+    .then((resp) => {
+      console.log(resp);
+    });
   }
 
   _renderAppLink () {
