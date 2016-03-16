@@ -11,6 +11,8 @@ import React, { Component, PropTypes } from 'react';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import s from './App.scss';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
 class App extends Component {
 
   static propTypes = {

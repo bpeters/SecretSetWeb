@@ -4,6 +4,8 @@
   font-family: Next-Medium;
   padding: 5% 0 5% 0;
   letter-spacing: 1px;
+  position: absolute;
+  bottom:0px;
 }
 
 .footerList {
@@ -28,4 +30,20 @@ a {
 a:active {
   text-decoration: none;
   color: #fff;
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+  .footerList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .dope {
+  padding: 0.5em 0 0.5em 0;
+}
+
 }
