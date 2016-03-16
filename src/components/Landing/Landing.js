@@ -10,17 +10,49 @@ class Landing extends Component {
 
   static contextTypes = {
     onSetTitle: PropTypes.func.isRequired,
+
   };
 
   constructor(props) {
     super(props);
     this.state = {};
 
-    this._onSubmitForm = this._onSubmitForm.bind(this);
-
+    this.getForm = this.getForm.bind(this);
+    this.showApp = this.showApp.bind(this);
   };
 
+
+  _renderGetApp () {
+    if ( this.state.getApp === false) {
+      return null;
+    }
+
+    return (
+       <RaisedButton
+        label="Get the App"
+        labelColor= "#8902B3"
+        labelstyle={{
+          fontFamily: "Next-Medium",
+          fontSize: 30,
+        }}
+        onMouseDown={this.getForm}
+      />
+    );
+  }
+
+  getForm () {
+    this.setState({
+      getForm: true,
+      getApp: false,
+      showApp: false,
+    });
+  }
+
   _renderForm () {
+    if (!this.state.getForm) {
+      return null;
+    }
+
     return (
       <div className={s.form}>
           <TextField
@@ -52,8 +84,32 @@ class Landing extends Component {
               fontFamily: "Next-Medium",
               fontSize: 20,
             }}
-            onMouseDown={this._onSubmitForm}
+            onMouseDown={this.showApp}
           />
+      </div>
+    );
+  }
+
+  showApp() {
+    this.setState({
+      showApp: true,
+      getForm: false,
+      getApp: false,
+    });
+  }
+
+  _renderAppLink () {
+    if (!this.state.showApp) {
+      return null;
+    }
+
+    return (
+      <div className={s.download}>
+          Awesome! We can't for you to join the secret listening parties!
+        <img
+          className={s.apple}
+          src='../../app-store-badge-coming.png'
+        />
         </div>
       );
   }
@@ -71,8 +127,14 @@ class Landing extends Component {
           Secret Sets for Super fans.
         </div>
 
+        {this._renderGetApp()}
+
+        {this._renderForm()}
+
+        {this._renderAppLink()}
 
         <Footer />
+
       </div>
     );
   }

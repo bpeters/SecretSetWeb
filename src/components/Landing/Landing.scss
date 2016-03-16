@@ -34,7 +34,17 @@
   width: 45vw;
 }
 
+.download {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30px;
+  font-family: Next-Regular;
+  text-shadow: center;
+}
 .apple {
+  margin-top: 10px;
   padding-bottom: 40px;
   max-height: 47px;
   max-width: 160px;
