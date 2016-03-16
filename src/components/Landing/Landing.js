@@ -119,16 +119,22 @@ class Landing extends Component {
       getApp: false,
     });
 
-    fetch('/sms', {
+    fetch('/superphone', {
       method: 'POST',
       header: {
         "Content-Type": "application/json",
       },
       body: {
-        to: this.state.textFieldValue,
-        from: '+15128874970',
-        body: 'Welcome to SuperSet',
-      },
+        "id": 1,
+        "active": true,
+        "mobile": this.state.textFieldValue,
+        "notification": {
+          "pushCalls": false,
+          "pushMessages": true,
+          "pushContactCreated": true,
+          "pushContactUpdated": true
+        }
+      }
     })
     .then((resp) => {
       console.log(resp);

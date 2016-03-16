@@ -76,6 +76,13 @@ server.use('/graphql', expressGraphQL(req => ({
   pretty: process.env.NODE_ENV !== 'production',
 })));
 
+server.use('/superphone', ( response, req) => ({
+  schema,
+  graphiql: true,
+  rootValue: { request: req },
+  pretty: process.env.NODE_ENV !== 'production',
+}));
+
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------
