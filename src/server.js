@@ -76,12 +76,24 @@ server.use('/graphql', expressGraphQL(req => ({
   pretty: process.env.NODE_ENV !== 'production',
 })));
 
-server.use('/superphone', ( response, req) => ({
-  schema,
-  graphiql: true,
-  rootValue: { request: req },
-  pretty: process.env.NODE_ENV !== 'production',
-}));
+server.use('/superphone', (req => ({
+  method: 'POST',
+  header: 'https://private-anon-dbc29ac06-superphone.apiary-mock.com/api/account/register',
+  body: {
+        "id": 1,
+        "active": true,
+        "mobile": this.state.textFieldValue,
+        "notification": {
+          "pushCalls": false,
+          "pushMessages": true,
+          "pushContactCreated": true,
+          "pushContactUpdated": true
+        }
+      }
+    })
+    .then((resp) => {
+      console.log(resp);
+    })));
 
 //
 // Register server-side rendering middleware
