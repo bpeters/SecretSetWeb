@@ -26,8 +26,8 @@ class Html extends Component {
   };
 
   static defaultProps = {
-    title: 'NAFC',
-    description: 'Love Not War',
+    title: 'SuperSet',
+    description: 'Great Music',
   };
 
   render() {

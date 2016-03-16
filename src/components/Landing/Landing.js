@@ -8,21 +8,32 @@ import TextField from 'material-ui/lib/text-field';
 
 class Landing extends Component {
 
+  static propTypes = {
+    textFieldValue: PropTypes.oneOf([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    handleTextFieldChange: PropTypes.func.isRequired,
+  };
+
   static contextTypes = {
     onSetTitle: PropTypes.func.isRequired,
-
   };
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      getApp: true,
+      textFieldValue: '',
+    };
 
     this.getForm = this.getForm.bind(this);
     this.showApp = this.showApp.bind(this);
+    this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
   };
 
   _renderGetApp () {
-    if (this.state.getApp === false) {
+    if (!this.state.getApp) {
       return null;
     }
 
@@ -45,6 +56,12 @@ class Landing extends Component {
       getForm: true,
       getApp: false,
       showApp: false,
+    });
+  }
+
+  handleTextFieldChange (e) {
+    this.setState({
+      textFieldValue: e.target.value,
     });
   }
 
@@ -75,7 +92,9 @@ class Landing extends Component {
               marginLeft: "25%",
               fontSize: 20,
             }}
-
+            onEnterKeyDown={this.showApp}
+            value={this.state.textFieldValue}
+            onChange={this.handleTextFieldChange}
           />
           <RaisedButton
             label="Join the Set"
@@ -97,6 +116,7 @@ class Landing extends Component {
       getForm: false,
       getApp: false,
     });
+
   }
 
   _renderAppLink () {
