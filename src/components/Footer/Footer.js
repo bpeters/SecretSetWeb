@@ -16,7 +16,7 @@ class Footer extends Component {
         <ul className= {s.footerList}>
           <li> © 2016 </li>
           <li className = {s.dope}> DOPE.TEAM </li>
-          <li> <a href="/legal"> LEGAL </a> </li>
+          <li> <a href="/legal"> Legal </a> </li>
         </ul>
       </div>
     );

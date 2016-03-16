@@ -41,13 +41,13 @@
   align-items: center;
   font-size: 30px;
   font-family: Next-Regular;
-  text-shadow: center;
+  text-align: center;
 }
 .apple {
   margin-top: 10px;
   padding-bottom: 40px;
-  max-height: 47px;
-  max-width: 160px;
+  max-height: 77px;
+  max-width: 260px;
 }
 
 .phone {
@@ -56,6 +56,11 @@
   height: 304px;
   max-width:417px;
   width: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
 }
 
 @media only screen

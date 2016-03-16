@@ -10,12 +10,12 @@ class Legal extends Component {
       <div className={s.legal}>
         <h className={s.header}>Terms of Use ("Terms")</h>
             <p>Last updated: March 01, 2016</p>
-            <p>Please read these Terms of Use ("Terms", "Terms of Use") carefully before using the http://NotaFight.Club website, mobile, and/or platform applications(the "Service") operated by  <a href="/">DOPE Team</a> ("us", "we", or "our").</p>
+            <p>Please read these Terms of Use ("Terms", "Terms of Use") carefully before using the http://SecretSet.Club website, mobile, and/or platform applications(the "Service") operated by  <a href="/">DOPE Team</a> ("us", "we", or "our").</p>
             <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
             <p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.</p>
           <h className={s.subheader}>Links To Other Web Sites, application, or services</h>
-            <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by Not a Fight Club.</p>
-            <p>Not a Fight Club has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Not a Fight Club shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+            <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by Secret Set.</p>
+            <p>Secret Set has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Secret Set shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
             <p>We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.</p>
           <h className={s.subheader}>Termination</h>
             <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
@@ -27,7 +27,7 @@ class Legal extends Component {
             <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 15 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
             <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
           <h className={s.subheader}>Contact Us</h>
-            <p>If you have any questions about these Terms, please contact us at <a href="mailto:info@notafight.club">info@notafight.club</a></p>
+            <p>If you have any questions about these Terms, please contact us at <a href="mailto:info@SecretSet.club">info@SecretSet.club</a></p>
       </div>
     );
   }
