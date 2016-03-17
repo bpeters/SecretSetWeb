@@ -13,9 +13,9 @@ class Footer extends Component {
     return (
       <div className= {s.footer}>
         <ul className= {s.footerList}>
-          <li> <a href="https://twitter.com/@secret_set"> #SecretSet </a></li>
-          <li> <a className= {s.blog} href="https://medium.com/@secretset"> BLOG </a> </li>
-          <li> <a href="/legal"> Legal </a> </li>
+          <li> <a className= {s.blog} href="https://medium.com/@secretset">blog</a></li>
+          <li> <a href="https://twitter.com/@secret_set">#SecretSet</a></li>
+          <li> <a href="/legal">legal</a></li>
         </ul>
       </div>
     );
