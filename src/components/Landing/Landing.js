@@ -39,7 +39,9 @@ class Landing extends Component {
 
     return (
        <RaisedButton
-        label="Get the App"
+        disabled={true}
+        disabledLabelColor='#8902B3'
+        label="Coming Soon!"
         labelColor= "#8902B3"
         labelstyle={{
           fontFamily: "Next-Medium",
@@ -118,27 +120,6 @@ class Landing extends Component {
       getForm: false,
       getApp: false,
     });
-
-    fetch('/superphone', {
-      method: 'POST',
-      header: {
-        "Content-Type": "application/json",
-      },
-      body: {
-        "id": 1,
-        "active": true,
-        "mobile": this.state.textFieldValue,
-        "notification": {
-          "pushCalls": false,
-          "pushMessages": true,
-          "pushContactCreated": true,
-          "pushContactUpdated": true
-        }
-      }
-    })
-    .then((resp) => {
-      console.log(resp);
-    });
   }
 
   _renderAppLink () {
@@ -158,13 +139,13 @@ class Landing extends Component {
   }
 
   render() {
-    this.context.onSetTitle('Secret Set');
+    this.context.onSetTitle('SecretSet | Coming Soon!');
 
     return (
       <div className={s.landing}>
         <img
           className= {s.logo}
-          src='../../logo@3x.png'
+          src='../../logo.png'
         />
         <div className={s.about}>
           A place where artists can create exclusive sets for their fans.
