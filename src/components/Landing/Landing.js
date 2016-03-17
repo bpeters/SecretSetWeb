@@ -118,27 +118,6 @@ class Landing extends Component {
       getForm: false,
       getApp: false,
     });
-
-    fetch('/superphone', {
-      method: 'POST',
-      header: {
-        "Content-Type": "application/json",
-      },
-      body: {
-        "id": 1,
-        "active": true,
-        "mobile": this.state.textFieldValue,
-        "notification": {
-          "pushCalls": false,
-          "pushMessages": true,
-          "pushContactCreated": true,
-          "pushContactUpdated": true
-        }
-      }
-    })
-    .then((resp) => {
-      console.log(resp);
-    });
   }
 
   _renderAppLink () {
