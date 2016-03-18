@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import request from 'superagent';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Landing.scss';
 
@@ -39,10 +40,8 @@ class Landing extends Component {
 
     return (
        <RaisedButton
-        disabled={true}
-        disabledLabelColor='#8902B3'
-        label="Coming Soon!"
-        labelColor= "#8902B3"
+        label="Get the App"
+        labelColor= "#D033E3"
         labelstyle={{
           fontFamily: "Next-Medium",
           fontSize: 30,
@@ -76,21 +75,25 @@ class Landing extends Component {
       <div className={s.form}>
           <div className = {s.textbox}>
           <TextField
-            hintText="555-555-5555"
+            errorText={this.state.error}
+            errorStyle={{
+              color: '#FFFFFF'
+            }}
+            hintText="555 555 5555"
             style= {{
               borderRadius: 3,
               fontSize: 20,
             }}
             inputStyle= {{
               marginLeft: "25%",
-              color: "#2AF09C",
+              color: "#FFFFFF",
               fontFamily: "Next-Medium",
             }}
             underlineStyle={{
-              color: "#F0AF2A",
+              color: "#8902B3",
             }}
             hintStyle={{
-              color: "#2AF09C",
+              color: "#8902B3",
               fontFamily: "Next-Medium",
               marginLeft: "25%",
               fontSize: 20,
@@ -101,25 +104,54 @@ class Landing extends Component {
           />
           </div>
           <RaisedButton
-            label="Join the Set"
-            labelColor= "#8902B3"
+            label="Send Link"
+            labelColor= "#D033E3"
             style={{
               fontFamily: "Next-Medium",
               fontSize: 20,
             }}
-            onMouseDown={this.showApp}
-            onTouchStart={this.showApp}
+            onClick={this.showApp}
           />
       </div>
     );
   }
 
   showApp() {
-    this.setState({
-      showApp: true,
-      getForm: false,
-      getApp: false,
-    });
+
+    var number = this.state.textFieldValue;
+    var clean = number.match(/\d/g);
+    clean = clean.join("");
+
+    if (clean.length === 10) {
+      request
+        .post('/app')
+        .set('Content-Type', 'application/json')
+        .send(
+          JSON.stringify({
+            number: this.state.textFieldValue,
+            content: 'Welcome to SecretSet, text this number with a 6 digit secret code to claim.\n\nOnce the iOS app is launched you will get a link to download.\n\nThanks!'
+          })
+        )
+        .end((err, res) => {
+
+          if (res.ok && JSON.parse(res.text)) {
+            this.setState({
+              showApp: true,
+              getForm: false,
+              getApp: false,
+              error: null,
+            });
+          } else {
+            this.setState({
+              error: 'Oops! try again',
+            });
+          }
+        });
+      } else {
+        this.setState({
+          error: 'Only US numbers, include area code',
+        });
+      }
   }
 
   _renderAppLink () {
@@ -129,17 +161,14 @@ class Landing extends Component {
 
     return (
       <div className={s.download}>
-          Awesome! We can't for you to join the secret listening parties!
-        <img
-          className={s.apple}
-          src='../../app-store-badge-coming.png'
-        />
-        </div>
+        Awesome, SMS sent! <br></br><br></br>
+        Artists will send out secret set codes, once you find one use the app to claim the secret!
+      </div>
       );
   }
 
   render() {
-    this.context.onSetTitle('SecretSet | Coming Soon!');
+    this.context.onSetTitle('SecretSet');
 
     return (
       <div className={s.landing}>
@@ -148,7 +177,7 @@ class Landing extends Component {
           src='../../logo.png'
         />
         <div className={s.about}>
-          A place where artists can create exclusive sets for their fans.
+          Connect with your favorite artists in a exclusive and unique way.
         </div>
 
         {this._renderGetApp()}

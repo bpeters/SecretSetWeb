@@ -21,6 +21,7 @@
 
   li {
     flex: 1;
+    margin-top: 10px;
   }
 }
 
@@ -42,7 +43,6 @@ a:active {
 }
 
 @media only screen
-and (min-device-width : 375px)
 and (max-device-width : 667px) {
 
   .footer {

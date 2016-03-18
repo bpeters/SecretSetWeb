@@ -23,6 +23,7 @@ import Router from './routes';
 import Html from './components/Html';
 import assets from './assets';
 import { port, auth } from './config';
+import request from 'superagent';
 
 const server = global.server = express();
 
@@ -36,10 +37,30 @@ global.navigator.userAgent = global.navigator.userAgent || 'all';
 //
 // Register Node.js middleware
 // -----------------------------------------------------------------------------
+
 server.use(express.static(path.join(__dirname, 'public')));
 server.use(cookieParser());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
+
+//
+// API
+// -----------------------------------------------------------------------------
+server.post('/app', (req, res) => {
+  request
+    .post('http://secretsetapi.herokuapp.com/v1/message')
+    .set('Content-Type', 'application/json')
+    .send(req.body)
+    .end((err, response) => {
+
+      if (err) {
+        res.send(false);
+      } else {
+        res.send(true);
+      }
+
+    });
+});
 
 //
 // Authentication
@@ -75,25 +96,6 @@ server.use('/graphql', expressGraphQL(req => ({
   rootValue: { request: req },
   pretty: process.env.NODE_ENV !== 'production',
 })));
-
-server.use('/superphone', (req => ({
-  method: 'POST',
-  header: 'https://private-anon-dbc29ac06-superphone.apiary-mock.com/api/account/register',
-  body: {
-        "id": 1,
-        "active": true,
-        "mobile": this.state.textFieldValue,
-        "notification": {
-          "pushCalls": false,
-          "pushMessages": true,
-          "pushContactCreated": true,
-          "pushContactUpdated": true
-        }
-      }
-    })
-    .then((resp) => {
-      console.log(resp);
-    })));
 
 //
 // Register server-side rendering middleware
