@@ -73,45 +73,50 @@ class Landing extends Component {
 
     return (
       <div className={s.form}>
-          <div className = {s.textbox}>
-          <TextField
-            errorText={this.state.error}
-            errorStyle={{
-              color: '#FFFFFF'
-            }}
-            hintText="555 555 5555"
-            style= {{
-              borderRadius: 3,
-              fontSize: 20,
-            }}
-            inputStyle= {{
-              marginLeft: "25%",
-              color: "#FFFFFF",
-              fontFamily: "Next-Medium",
-            }}
-            underlineStyle={{
-              color: "#8902B3",
-            }}
-            hintStyle={{
-              color: "#8902B3",
-              fontFamily: "Next-Medium",
-              marginLeft: "25%",
-              fontSize: 20,
-            }}
-            onEnterKeyDown={this.showApp}
-            value={this.state.textFieldValue}
-            onChange={this.handleTextFieldChange}
-          />
-          </div>
-          <RaisedButton
-            label="Send Link"
-            labelColor= "#D033E3"
-            style={{
-              fontFamily: "Next-Medium",
-              fontSize: 20,
-            }}
-            onClick={this.showApp}
-          />
+        <div className = {s.textbox}>
+        <TextField
+          floatingLabelText={'Enter Phone Number'}
+          floatingLabelStyle={{
+            fontSize: 14,
+            color: '#FFFFFF',
+          }}
+          errorText={this.state.error}
+          errorStyle={{
+            color: '#FFFFFF'
+          }}
+          hintText="555 555 5555"
+          style= {{
+            borderRadius: 3,
+            fontSize: 20,
+          }}
+          inputStyle= {{
+            marginLeft: "25%",
+            color: "#FFFFFF",
+            fontFamily: "Next-Medium",
+          }}
+          underlineStyle={{
+            color: "#8902B3",
+          }}
+          hintStyle={{
+            color: "#8902B3",
+            fontFamily: "Next-Medium",
+            marginLeft: "25%",
+            fontSize: 20,
+          }}
+          onEnterKeyDown={this.showApp}
+          value={this.state.textFieldValue}
+          onChange={this.handleTextFieldChange}
+        />
+        </div>
+        <RaisedButton
+          label="Send Link"
+          labelColor= "#D033E3"
+          style={{
+            fontFamily: "Next-Medium",
+            fontSize: 20,
+          }}
+          onClick={this.showApp}
+        />
       </div>
     );
   }
@@ -164,7 +169,7 @@ class Landing extends Component {
         Awesome, SMS sent! <br></br><br></br>
         Artists will send out secret set codes, once you find one use the app to claim the secret!
       </div>
-      );
+    );
   }
 
   render() {
